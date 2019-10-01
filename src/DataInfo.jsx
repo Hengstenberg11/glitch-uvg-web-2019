@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 export default class DataInfo extends Component {
-  render () {
+  render() {
     return (
       <ol>
         <li>Block advertising trackers.</li>
