@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import Logo from './Logo';
 import ScrollButton from './ScrollButton';
 import Background from './Background';
 import Input from './input';
-import Slide from './Slide.js';
-import Logo from './Logo.js';
+import Slide from './Slide';
 import Cuadro from './cuadro';
 
 class App extends Component {

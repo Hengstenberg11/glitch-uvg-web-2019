@@ -1,38 +1,54 @@
 import React from 'react';
 import './Slide.css';
+import PropTypes from 'prop-types';
 
-class Slide extends Component {
-  render() {
-    const image = {
-      backgroundImage: `url(${this.props.imgPath})`,
-      width: '1000px',
-      height: '385px',
-      zoom: '0.8',
-      margin: 'auto auto auto auto',
-    };
+function Slide(props) {
+  const { shadow } = props;
+  const { description } = props;
+  const { imgPath } = props;
+  const { bgColor } = props;
+  const { txtColor } = props;
+  const { title } = props;
 
-    const bgColor = {
-      background: `#${this.props.bgColor}`,
-    };
+  const image = {
+    backgroundImage: `url(${imgPath})`,
+    width: '1000px',
+    height: '385px',
+    zoom: '0.8',
+    margin: 'auto auto auto auto',
+  };
 
-    const textColor = {
-      color: `#${this.props.txtColor}`,
-    };
+  const bgColor1 = {
+    background: `#${bgColor}`,
+  };
 
-    const textShadow = {
-      color: `#${this.props.txtColor}`,
-      textShadow: '0 1px 4px rgba(0,0,0,0.25)',
-    };
+  const textColor = {
+    color: `#${txtColor}`,
+  };
 
-    return (
-      <div className="slideContainer" style={bgColor}>
-        <h1 style={this.props.shadow ? textShadow : textColor}>{this.props.title}</h1>
-        <h2 style={textColor}>{this.props.description}</h2>
-        <button>Add DuckDuckGo to Chrome</button>
-        <div className="slideImage" style={image} />
-      </div>
-    );
-  }
+  const textShadow = {
+    color: `#${txtColor}`,
+    textShadow: '0 1px 4px rgba(0,0,0,0.25)',
+  };
+
+  return (
+    <div className="slideContainer" style={bgColor1}>
+      <h1 style={shadow ? textShadow : textColor}>{title}</h1>
+      <h2 style={textColor}>{description}</h2>
+      <button type="button">Add DuckDuckGo to Chrome</button>
+      <div className="slideImage" style={image} />
+    </div>
+  );
 }
+
+
+Slide.propTypes = {
+  shadow: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  imgPath: PropTypes.string.isRequired,
+  bgColor: PropTypes.string.isRequired,
+  txtColor: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default Slide;
